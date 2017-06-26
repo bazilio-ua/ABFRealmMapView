@@ -292,9 +292,6 @@ open class RealmMapView: MKMapView {
         
         region = self.regionThatFits(region)
         
-        region.span.latitudeDelta *= 1.3
-        region.span.longitudeDelta *= 1.3
-        
         return region
     }
 }
