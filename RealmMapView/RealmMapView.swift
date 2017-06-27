@@ -288,7 +288,11 @@ open class RealmMapView: MKMapView {
             rect = MKMapRectUnion(rect, MKMapRectMake(point.x, point.y, 0, 0))
         }
         
-        var region = MKCoordinateRegionForMapRect(MKMapRectOffset(rect, 1.3, 1.3))
+        let k = 0.3
+        let width = MKMapRectGetWidth(rect)
+        let height = MKMapRectGetHeight(rect)
+        let newRect = MKMapRectInset(rect, -width * k, -height * k)
+        var region = MKCoordinateRegionForMapRect(newRect)
         
         region = self.regionThatFits(region)
         
